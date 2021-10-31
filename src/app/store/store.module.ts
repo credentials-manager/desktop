@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { StoreRoutingModule } from './store-routing.module';
+import { StoreRoutingModule } from "./store-routing.module";
+import { StoreComponent } from "./store.component";
 
+import { MatListModule } from "@angular/material/list";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    StoreRoutingModule
-  ]
+  declarations: [StoreComponent],
+  imports: [CommonModule, StoreRoutingModule, MatListModule, MatIconModule],
 })
-export class StoreModule { }
+export class StoreModule {}

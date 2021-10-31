@@ -1,1 +1,7 @@
-<p>store works!</p>
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let store of stores">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <div mat-line>{{ store.name }}</div>
+    <div mat-line>{{ store.id }}</div>
+  </mat-list-option>
+</mat-selection-list>
