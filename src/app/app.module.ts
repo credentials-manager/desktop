@@ -17,6 +17,8 @@ import { DetailModule } from "./detail/detail.module";
 import { AppComponent } from "./app.component";
 import { StoreModule } from "./store/store.module";
 
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
   new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -32,6 +34,7 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
     HomeModule,
     StoreModule,
     DetailModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
