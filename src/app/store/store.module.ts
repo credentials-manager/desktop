@@ -11,6 +11,7 @@ import { CreateDialogComponent } from "./create-dialog/create-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [StoreComponent, CreateDialogComponent],
@@ -23,6 +24,7 @@ import { FormsModule } from "@angular/forms";
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatSnackBarModule,
   ],
 })
 export class StoreModule {}

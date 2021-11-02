@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
 import { MatDialog } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+
 import { ElectronService } from "../core/services/electron/electron.service";
 import { CreateDialogComponent } from "./create-dialog/create-dialog.component";
 import * as credman from "@credman/core";
@@ -17,7 +19,8 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private electronService: ElectronService
+    private electronService: ElectronService,
+    private snackBar: MatSnackBar
   ) {
     this.credman = this.electronService.remote.require("@credman/core");
 
@@ -35,6 +38,10 @@ export class StoreComponent implements OnInit {
         store.create();
 
         this.stores.push(store);
+
+        this.snackBar.open("Store created", "Close", {
+          duration: 5000,
+        });
       }
     });
   }
