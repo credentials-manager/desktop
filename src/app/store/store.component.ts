@@ -39,7 +39,7 @@ export class StoreComponent implements OnInit {
 
         this.stores.push(store);
 
-        this.snackBar.open("Store created", "Close", {
+        this.snackBar.open(`Store '${result}' created`, "Close", {
           duration: 5000,
         });
       }
