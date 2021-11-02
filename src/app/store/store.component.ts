@@ -1,17 +1,41 @@
 import { Component, OnInit } from "@angular/core";
 
+import { MatDialog } from "@angular/material/dialog";
+import { ElectronService } from "../core/services/electron/electron.service";
+import { CreateDialogComponent } from "./create-dialog/create-dialog.component";
+import * as credman from "@credman/core";
+
 @Component({
   selector: "app-store",
   templateUrl: "./store.component.html",
   styleUrls: ["./store.component.scss"],
 })
 export class StoreComponent implements OnInit {
-  public stores: { name: string; id: string }[] = [
-    { name: "Store One", id: "asd" },
-    { name: "Store Two", id: "asd2" },
-  ];
+  public stores: credman.Store[];
 
-  constructor() {}
+  private credman: typeof credman;
+
+  constructor(
+    private dialog: MatDialog,
+    private electronService: ElectronService
+  ) {
+    this.credman = this.electronService.remote.require("@credman/core");
+
+    this.stores = this.credman.Store.getAll();
+  }
 
   ngOnInit(): void {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const store = new this.credman.Store(result);
+        store.create();
+
+        this.stores.push(store);
+      }
+    });
+  }
 }
