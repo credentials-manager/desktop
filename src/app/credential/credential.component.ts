@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute } from "@angular/router";
 import * as credman from "@credman/core";
 import { ElectronService } from "../core/services/electron/electron.service";
+import { CreateDialogComponent } from "../credential/create-dialog/create-dialog.component";
 
 @Component({
   selector: "app-credential",
@@ -14,7 +16,8 @@ export class CredentialComponent implements OnInit {
 
   constructor(
     private electronService: ElectronService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) {
     const store_id: string = this.route.snapshot.params.id;
 
@@ -24,4 +27,14 @@ export class CredentialComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.addCredential(result);
+      }
+    });
+  }
 }
