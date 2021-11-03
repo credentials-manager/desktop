@@ -18,6 +18,10 @@ import { AppComponent } from "./app.component";
 import { StoreModule } from "./store/store.module";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CredentialModule } from "./credential/credential.module";
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
 
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
@@ -32,8 +36,11 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
     CoreModule,
     SharedModule,
     HomeModule,
+    MatToolbarModule,
+    MatButtonModule,
     StoreModule,
     DetailModule,
+    CredentialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     TranslateModule.forRoot({
