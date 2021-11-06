@@ -37,4 +37,8 @@ export class CredentialComponent implements OnInit {
       }
     });
   }
+
+  delete(id: string): void {
+    this.store.deleteCredential(id);
+  }
 }
