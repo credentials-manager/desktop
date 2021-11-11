@@ -1,7 +1,21 @@
 <mat-toolbar color="primary">
-  <span>CredMan</span>
+  <button
+    mat-button
+    routerLink="/stores"
+    routerLinkActive="navbar-header-item-selected"
+  >
+    Stores
+  </button>
 
-  <button mat-button routerLink="/stores">Stores</button>
+  <div class="flex-spacer"></div>
+
+  <button
+    class="right"
+    mat-button
+    routerLinkActive="navbar-header-item-selected"
+  >
+    Settings
+  </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
