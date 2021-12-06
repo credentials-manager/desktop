@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./create-dialog.component.scss"],
 })
 export class CreateDialogComponent implements OnInit {
-  public name: string;
+  public store: { name: string; password: string } = { name: "", password: "" };
 
   constructor() {}
 

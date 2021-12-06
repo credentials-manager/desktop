@@ -34,12 +34,13 @@ export class StoreComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        const store = new this.credman.Store(result);
+        console.log(result);
+        const store = new this.credman.Store(result.name);
         store.create();
 
         this.stores.push(store);
 
-        this.snackBar.open(`Store '${result}' created`, "Close", {
+        this.snackBar.open(`Store '${result.name}' created`, "Close", {
           duration: 5000,
         });
       }
