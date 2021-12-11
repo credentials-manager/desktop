@@ -12,9 +12,10 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { DecryptDialogComponent } from './decrypt-dialog/decrypt-dialog.component';
 
 @NgModule({
-  declarations: [StoreComponent, CreateDialogComponent],
+  declarations: [StoreComponent, CreateDialogComponent, DecryptDialogComponent],
   imports: [
     CommonModule,
     StoreRoutingModule,

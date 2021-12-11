@@ -3,10 +3,7 @@
 </button>
 
 <mat-selection-list [multiple]="false">
-  <mat-list-option
-    *ngFor="let store of stores"
-    [routerLink]="['/credentials', store.id]"
-  >
+  <mat-list-option *ngFor="let store of stores" (click)="openStore(store)">
     <mat-icon mat-list-icon>{{
       store.encrypted ? "lock" : "fingerprint"
     }}</mat-icon>
