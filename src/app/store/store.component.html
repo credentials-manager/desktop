@@ -7,7 +7,9 @@
     *ngFor="let store of stores"
     [routerLink]="['/credentials', store.id]"
   >
-    <mat-icon mat-list-icon>fingerprint</mat-icon>
+    <mat-icon mat-list-icon>{{
+      store.encrypted ? "lock" : "fingerprint"
+    }}</mat-icon>
     <div mat-line>{{ store.name }}</div>
     <div mat-line>{{ store.id }}</div>
   </mat-list-option>
